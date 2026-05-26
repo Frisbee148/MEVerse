@@ -108,10 +108,10 @@ def _build_space_app() -> gr.Blocks:
     ) as blocks_app:
         if playground_blocks is not None:
             with gr.Tabs(elem_classes=["space-tabs"]):
-                with gr.Tab("Playground"):
-                    playground_blocks.render()
                 with gr.Tab("Dashboard"):
                     dashboard_blocks.render()
+                with gr.Tab("Playground"):
+                    playground_blocks.render()
         else:
             # Playground unavailable — show dashboard directly
             dashboard_blocks.render()

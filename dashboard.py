@@ -1265,7 +1265,39 @@ def build_app() -> gr.Blocks:
 
         with gr.Tabs():
 
-            # =============== TAB 1: Episode Runner ===============
+            # =============== TAB 1: About ===============
+            with gr.Tab("About"):
+                gr.Markdown("""
+#### About TradeX
+
+**TradeX** is a bot-aware market surveillance benchmark built on a simulated AMM (Automated Market Maker) environment.
+
+**Tasks:**
+
+- **Burst Detection** (Easy) — The agent deals with sudden, acute spikes — a bot hammering the pool with a high volume of trades in a short window. The signal is primarily `burst_indicator` going high. The activity is spatially concentrated in time, and a simple threshold rule can mostly catch it.
+- **Pattern Manipulation Detection** (Medium) — The agent faces sustained, rhythmic coordination — trades that aren't necessarily bursty but repeat at suspicious timing intervals or with suspicious size signatures. The signal is `pattern_indicator` combined with `time_gap_min` being suspiciously regular. A bot can have low burst but high pattern. This is harder because the activity individually looks benign.
+- **Full Market Surveillance** (Hard) — Both threats at once, mixed with normal traffic. The agent must simultaneously avoid false positives on organic noise and catch both burst-type and pattern-type attacks. It runs 60 steps (vs 50), and `initial_bot_confidence` is 0.30 (between the two single-threat tasks).
+
+**Actions:**
+- `ALLOW` — Normal activity, let it through
+- `MONITOR` — Watch more closely
+- `FLAG` — Mark as suspicious for review
+- `BLOCK` — Block the activity
+
+**Scoring Components:**
+| Component | Weight | Measures |
+|-----------|--------|----------|
+| Detection | 50% | Correct identification of suspicious activity |
+| False Positive | 20% | Avoiding flagging normal activity |
+| False Negative | 15% | Avoiding missing suspicious activity |
+| Health | 10% | Preserving healthy market behavior |
+| Overblocking | 5% | Not over-blocking normal users |
+
+**AMM Dynamics:**
+The environment uses a constant-product AMM (`x * y = k`). Agent actions affect the AMM state — blocking suspicious activity reduces bot confidence and volatility, while allowing it increases both. This creates a feedback loop where early decisions shape future observations.
+""")
+
+            # =============== TAB 2: Episode Runner ===============
             with gr.Tab("Episode Runner"):
                 with gr.Row():
                     with gr.Column(scale=1, min_width=280):
@@ -1374,38 +1406,6 @@ def build_app() -> gr.Blocks:
                     outputs=[telem_chart, telem_summary],
                     queue=False,
                 )
-
-            # =============== TAB 4: About ===============
-            with gr.Tab("About"):
-                gr.Markdown("""
-#### About TradeX
-
-**TradeX** is a bot-aware market surveillance benchmark built on a simulated AMM (Automated Market Maker) environment.
-
-**Tasks:**
-
-- **Burst Detection** (Easy) — The agent deals with sudden, acute spikes — a bot hammering the pool with a high volume of trades in a short window. The signal is primarily `burst_indicator` going high. The activity is spatially concentrated in time, and a simple threshold rule can mostly catch it.
-- **Pattern Manipulation Detection** (Medium) — The agent faces sustained, rhythmic coordination — trades that aren't necessarily bursty but repeat at suspicious timing intervals or with suspicious size signatures. The signal is `pattern_indicator` combined with `time_gap_min` being suspiciously regular. A bot can have low burst but high pattern. This is harder because the activity individually looks benign.
-- **Full Market Surveillance** (Hard) — Both threats at once, mixed with normal traffic. The agent must simultaneously avoid false positives on organic noise and catch both burst-type and pattern-type attacks. It runs 60 steps (vs 50), and `initial_bot_confidence` is 0.30 (between the two single-threat tasks).
-
-**Actions:**
-- `ALLOW` — Normal activity, let it through
-- `MONITOR` — Watch more closely
-- `FLAG` — Mark as suspicious for review
-- `BLOCK` — Block the activity
-
-**Scoring Components:**
-| Component | Weight | Measures |
-|-----------|--------|----------|
-| Detection | 50% | Correct identification of suspicious activity |
-| False Positive | 20% | Avoiding flagging normal activity |
-| False Negative | 15% | Avoiding missing suspicious activity |
-| Health | 10% | Preserving healthy market behavior |
-| Overblocking | 5% | Not over-blocking normal users |
-
-**AMM Dynamics:**
-The environment uses a constant-product AMM (`x * y = k`). Agent actions affect the AMM state — blocking suspicious activity reduces bot confidence and volatility, while allowing it increases both. This creates a feedback loop where early decisions shape future observations.
-""")
 
     return app
 
