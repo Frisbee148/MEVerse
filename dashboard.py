@@ -1,4 +1,4 @@
-"""TradeX Market Surveillance Dashboard — Gradio UI."""
+"""MEVerse Market Surveillance Dashboard — Gradio UI."""
 
 from __future__ import annotations
 
@@ -1253,12 +1253,12 @@ THEME = gr.themes.Base(
 
 
 def build_app() -> gr.Blocks:
-    with gr.Blocks(title="TradeX Surveillance Dashboard") as app:
+    with gr.Blocks(title="MEVerse Surveillance Dashboard") as app:
 
         # Header
         gr.HTML("""
         <div class="header-banner">
-            <h1>TradeX Surveillance Dashboard</h1>
+            <h1>MEVerse Surveillance Dashboard</h1>
             <p>Bot-aware Market Surveillance in Simulated AMM Trading &mdash; Interactive Analysis & Benchmarking</p>
         </div>
         """)
@@ -1268,9 +1268,9 @@ def build_app() -> gr.Blocks:
             # =============== TAB 1: About ===============
             with gr.Tab("About"):
                 gr.Markdown("""
-#### About TradeX
+#### About MEVerse
 
-**TradeX** is a bot-aware market surveillance benchmark built on a simulated AMM (Automated Market Maker) environment.
+**MEVerse** is a bot-aware market surveillance benchmark built on a simulated AMM (Automated Market Maker) environment.
 
 **Tasks:**
 

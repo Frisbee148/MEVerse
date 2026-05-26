@@ -31,7 +31,7 @@ export default function App() {
   return (
     <>
       <header className="header">
-        <h1>TradeX Surveillance Dashboard</h1>
+        <h1>MEVerse Surveillance Dashboard</h1>
         <p>Bot-aware Market Surveillance in Simulated AMM Trading</p>
       </header>
 
