@@ -106,9 +106,22 @@ graph TD
     LP -.-> MAS
     AA -.-> MAS
 
-    SA["Surveillance Agent"]
+    SA["Surveillance Agent (LLM)"]
 
-    BO --> SA
+    BO -->|1. Observes| SA
+    SA -->|2. Actions (BLOCK/ALLOW)| AMM_Env
+
+    subgraph Optimizer ["Prompt Optimization Loop (prompt_optimizer.py)"]
+        TR["Trajectory & Episode Score"]
+        JL["Judge LLM<br>(Evaluates Mistakes)"]
+        NP["New System Prompt"]
+        
+        TR --> JL
+        JL -->|Rewrites| NP
+    end
+
+    AMM_Env -->|3. After Episode Ends| TR
+    NP -.->|4. Updates Agent| SA
 ```
 
 ## Avoiding Reward Hacking
