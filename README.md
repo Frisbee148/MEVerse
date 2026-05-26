@@ -161,8 +161,6 @@ python prompt_optimizer.py --task full_market_surveillance --iterations 5 --seed
 
 Below are the graphs and plots detailing the performance of the Meverse agent over the training period and comparing it against the baseline.
 
-> **For detailed environment specs:** See the [Meverse README](meverse/README.md)
-
 ### Baseline vs Trained Performance
 ![Baseline vs Trained](meverse_plots/baseline_vs_trained.png)
 
