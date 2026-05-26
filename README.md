@@ -77,27 +77,38 @@ Hiding gives certain protection to those who opt in; detection gives universal c
 
 TradeX doesn't just rely on procedural math; it runs a live orchestrator of distinct, interacting bots that blend their signals into the environment.
 
-```text
-  [ AgentPool ] Orchestrator
-       │
-       ├── [ ManipulatorBot ]   → Injects MEV attacks, evolves to hide (anti-hacking)
-       ├── [ NormalTrader ]     → Generates organic baseline trades
-       ├── [ LiquidityProvider] → "False Positive Trap" (High pattern, 0 manipulation)
-       └── [ ArbitrageAgent ]   → Reacts to ManipulatorBot with large follow-up trades
-       │
-       ▼
-  Generates Agent-Specific Signals (burst_boost, pattern_boost, manipulation_boost)
-       │
-       ▼
-  [ AMM Environment ] (meverse/amm.py)
-       ├── Procedural Generation (70% weight)
-       └── AgentPool Signals (30% weight)
-       │
-       ▼
-  Blended Observation (Price, Slippage, Time Gaps, Indicators)
-       │
-       ▼
-  [ Surveillance Agent ]
+```mermaid
+graph TD
+    subgraph Multi_Agent_System ["Multi-Agent System (tradex/agents.py)"]
+        AP["AgentPool Orchestrator"]
+        MB["ManipulatorBot<br>(Injects MEV, evolves to hide)"]
+        NT["NormalTrader<br>(Organic baseline trades)"]
+        LP["LiquidityProvider<br>(False Positive Trap)"]
+        AA["ArbitrageAgent<br>(Reacts to ManipulatorBot)"]
+        
+        AP --> MB
+        AP --> NT
+        AP --> LP
+        AP --> AA
+    end
+
+    subgraph AMM_Env ["AMM Environment (meverse/amm.py)"]
+        PG["Procedural Generation (70% Weight)"]
+        MAS["AgentPool Signals (30% Weight)"]
+        BO["Blended Observation<br>(Price, Slippage, Time Gaps, Indicators)"]
+        
+        PG --> BO
+        MAS --> BO
+    end
+
+    MB -.-> MAS
+    NT -.-> MAS
+    LP -.-> MAS
+    AA -.-> MAS
+
+    SA["Surveillance Agent"]
+
+    BO --> SA
 ```
 
 ## Avoiding Reward Hacking
@@ -157,3 +168,7 @@ Uniswap is permissionless — there is no hook to "block" a swap. The only layer
 > **TradeX detection agent** → emits a classification → feeds a bundle-ordering/filtering policy inside a **builder** → tested locally, no mainnet, no real funds.
 
 *Note:* Filtering others' transactions sits in tension with the censorship-resistance ethos of decentralized building (BuilderNet). Production-real protection remains private order flow (hiding the victim), which detection ontology does not directly replace.
+
+## Papers
+
+- [Know Your Intent: An Autonomous Multi-Perspective LLM Agent Framework for DeFi User Transaction Intent Mining](https://arxiv.org/html/2511.15456v1)
