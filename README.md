@@ -214,6 +214,21 @@ These are edge cases that we should cover in our policy not only the heuristic p
 
 ---
 
+## Meverse Training Results
+
+Below are the graphs and plots detailing the performance of the Meverse agent over the training period and comparing it against the baseline.
+
+### Baseline vs Trained Performance
+![Baseline vs Trained](meverse_plots/baseline_vs_trained.png)
+
+### Reward vs Training Step
+![Reward vs Training Step](meverse_plots/reward_vs_training_step.png)
+
+### Task Scores Comparison
+![Task Scores Comparison](meverse_plots/task_scores_comparison.png)
+
+---
+
 ## Runnable Files — What to Run and When
 
 ### `inference.py` — Run the official benchmark
