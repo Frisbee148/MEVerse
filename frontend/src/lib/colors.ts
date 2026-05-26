@@ -13,7 +13,7 @@ export const LABEL_COLORS: Record<Label, string> = {
 };
 
 export const C = {
-  accent: "#00c9a7",
+  accent: "#3b82f6",
   blue: "#0088cc",
   danger: "#ff4757",
   warning: "#ffa502",

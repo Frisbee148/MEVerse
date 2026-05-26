@@ -41,7 +41,7 @@ COLORS = {
     "border": "#2a2d3a",
     "text": "#e4e6eb",
     "muted": "#8b8fa3",
-    "accent": "#00c9a7",       # teal
+    "accent": "#3b82f6",       # teal
     "accent2": "#0088cc",      # blue
     "danger": "#ff4757",       # red
     "warning": "#ffa502",      # amber
@@ -762,7 +762,7 @@ def _make_confusion_chart(state: EpisodeState) -> go.Figure:
         colorscale=[
             [0.0, "#1a1d27"],
             [0.5, "#0088cc"],
-            [1.0, "#00c9a7"],
+            [1.0, "#3b82f6"],
         ],
         text=matrix,
         texttemplate="%{text}",
@@ -783,12 +783,12 @@ def _make_confusion_chart(state: EpisodeState) -> go.Figure:
     zero_matrix = [[0]*4, [0]*4]
     fig.frames = [
         go.Frame(data=[go.Heatmap(z=zero_matrix, x=actions_order, y=labels_order,
-                                  colorscale=[[0.0, "#1a1d27"], [0.5, "#0088cc"], [1.0, "#00c9a7"]],
+                                  colorscale=[[0.0, "#1a1d27"], [0.5, "#0088cc"], [1.0, "#3b82f6"]],
                                   text=zero_matrix, texttemplate="%{text}",
                                   textfont=dict(size=16, color="white"), showscale=False)],
                  name="start"),
         go.Frame(data=[go.Heatmap(z=matrix, x=actions_order, y=labels_order,
-                                  colorscale=[[0.0, "#1a1d27"], [0.5, "#0088cc"], [1.0, "#00c9a7"]],
+                                  colorscale=[[0.0, "#1a1d27"], [0.5, "#0088cc"], [1.0, "#3b82f6"]],
                                   text=matrix, texttemplate="%{text}",
                                   textfont=dict(size=16, color="white"), showscale=False)],
                  name="end"),
@@ -1108,12 +1108,12 @@ CUSTOM_CSS = """
     --block-border-color: #2a2d3a !important;
     --block-label-text-color: #e4e6eb !important;
     --body-text-color: #e4e6eb !important;
-    --button-primary-background-fill: #00c9a7 !important;
+    --button-primary-background-fill: #3b82f6 !important;
     --button-primary-text-color: #0f1117 !important;
-    --button-primary-background-fill-hover: #00b396 !important;
+    --button-primary-background-fill-hover: #2563eb !important;
     --input-background-fill: #1a1d27 !important;
     --input-border-color: #2a2d3a !important;
-    --color-accent: #00c9a7 !important;
+    --color-accent: #3b82f6 !important;
     --color-accent-soft: rgba(0, 201, 167, 0.15) !important;
 }
 
@@ -1126,7 +1126,7 @@ CUSTOM_CSS = """
     margin-bottom: 8px;
 }
 .header-banner h1 {
-    color: #00c9a7 !important;
+    color: #3b82f6 !important;
     font-size: 28px !important;
     margin: 0 0 4px 0 !important;
     font-weight: 700 !important;
@@ -1149,8 +1149,8 @@ CUSTOM_CSS = """
     border: none !important;
 }
 .tabs > .tab-nav button.selected {
-    color: #00c9a7 !important;
-    border-bottom: 2px solid #00c9a7 !important;
+    color: #3b82f6 !important;
+    border-bottom: 2px solid #3b82f6 !important;
     background: transparent !important;
 }
 
@@ -1167,7 +1167,7 @@ table {
 }
 table th {
     background: #0f1117 !important;
-    color: #00c9a7 !important;
+    color: #3b82f6 !important;
     font-weight: 600 !important;
     border-bottom: 2px solid #2a2d3a !important;
 }
@@ -1181,7 +1181,7 @@ table tr:hover td {
 
 /* Markdown inside the summary */
 .prose h3 {
-    color: #00c9a7 !important;
+    color: #3b82f6 !important;
 }
 .prose table th {
     background: #0f1117 !important;
@@ -1209,7 +1209,7 @@ input[type="number"] {
     transition: border-color 0.3s ease, background 0.3s ease;
 }
 #telem-upload:hover {
-    border-color: #00c9a7 !important;
+    border-color: #3b82f6 !important;
     background: rgba(0, 201, 167, 0.05) !important;
 }
 """
@@ -1222,8 +1222,8 @@ input[type="number"] {
 THEME = gr.themes.Base(
         primary_hue=gr.themes.Color(
             c50="#e6faf5", c100="#b3f0e0", c200="#80e6cc",
-            c300="#4ddcb8", c400="#26d4a8", c500="#00c9a7",
-            c600="#00b396", c700="#009d85", c800="#008774",
+            c300="#4ddcb8", c400="#26d4a8", c500="#3b82f6",
+            c600="#2563eb", c700="#009d85", c800="#008774",
             c900="#006b5d", c950="#004f46",
         ),
         secondary_hue=gr.themes.Color(
@@ -1245,7 +1245,7 @@ THEME = gr.themes.Base(
         block_border_color="#2a2d3a",
         block_label_text_color="#e4e6eb",
         body_text_color="#e4e6eb",
-        button_primary_background_fill="#00c9a7",
+        button_primary_background_fill="#3b82f6",
         button_primary_text_color="#0f1117",
         input_background_fill="#1a1d27",
         input_border_color="#2a2d3a",
