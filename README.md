@@ -19,10 +19,31 @@ Decentralized Finance (DeFi) is constantly targeted by algorithmic MEV (Maximal 
 
 TradeX provides an adversarial, decision-intelligence sandbox to evaluate and train AI agents to police these decentralized financial protocols. It challenges agents to spot complex market manipulation patterns without penalizing organic traders. 
 
-## Who is this for?
-- **AI Researchers:** To benchmark LLMs and Reinforcement Learning agents on complex, adversarial decision-making tasks.
-- **DeFi Security Engineers:** To develop and test new detection heuristics for on-chain surveillance.
-- **Data Scientists:** To experiment with prompt optimization and multi-agent interaction in simulated financial environments.
+## Who is this for & Why Use It?
+TradeX evaluates the detection intelligence that could one day feed structural defenses. It is designed for:
+- **AI Researchers:** To benchmark LLMs, RL, and hybrid agents on identical adversarial scenarios, providing a standardized OpenEnv certification benchmark for MEV surveillance.
+- **DeFi Security Engineers:** To target the residual threat surface (e.g., cross-domain attacks that don't depend on mempool visibility) and achieve population-wide visibility over all market activity.
+- **Data Scientists:** To experiment with prompt optimization and generate labeled datasets of MEV attacks, which pure mitigation tools (like Flashbots Protect) cannot produce.
+
+## Positioning: Where TradeX Fits in the MEV Stack
+
+MEV defense is not a single layer, and TradeX does not compete with the tools usually named alongside it. Three distinct layers are worth separating:
+
+- **Venue layer — Uniswap:** The AMM where trades execute and MEV is extracted. Uniswap is permissionless: no controller, no admin, no party that can reject or reorder a swap. It is the thing being *attacked*, not a defense.
+- **Infrastructure layer — Flashbots:** Market-structure infrastructure that *mitigates* MEV by changing how transactions reach a block (e.g., Flashbots Protect, MEV-Share). It mitigates structurally; it does not classify attacks.
+- **Evaluation layer — TradeX:** A reproducible benchmark for *detection agents*. It does not execute trades, route order flow, or build blocks. It scores how well an agent identifies suspicious activity.
+
+**TradeX is not a competitor to Uniswap or Flashbots — it is complementary.** Uniswap is the venue; Flashbots protects the venue's users structurally (via hiding); TradeX evaluates the detection intelligence that could feed into structural defenses.
+
+### Hiding vs. Detection
+
+The dominant production defense today is *hiding* (e.g., Flashbots Protect), which routes transactions privately so they never appear in the public mempool. Hiding performs no attack classification at all. 
+
+Both hiding and detection optimize for different goals:
+- **Hiding:** Protects a specific user's trade with near certainty, but is opt-in only and blind to attacks not reliant on mempool visibility. Hidden attacks teach nothing.
+- **Detection (TradeX):** Surveils the whole market population-wide. It generates the labeled datasets needed to understand novel attacks, though it acts probabilistically (can have false positives).
+
+Hiding gives certain protection to those who opt in; detection gives universal coverage but only probabilistically. Neither dominates — they cover each other's blind spots.
 
 ## Core Features
 - **Multi-Agent Simulation Ecosystem:** TradeX features a dynamic `AgentPool` where evolving `ManipulatorBots`, organic `NormalTraders`, reactive `ArbitrageAgents`, and `LiquidityProviders` (acting as false-positive traps) interact and generate complex market signals.
@@ -120,3 +141,19 @@ Below are the graphs and plots detailing the performance of the Meverse agent ov
 
 ### Task Scores Comparison
 ![Task Scores Comparison](meverse_plots/task_scores_comparison.png)
+
+## Future Integration with Uniswap
+
+While TradeX currently uses synthetic market data, future integration with real Uniswap state splits into two operations:
+
+**Reading real pool data IN (feasible, near-term):** Replacing the synthetic observation generator with real Uniswap activity.
+- *Archive / subgraph replay:* Map historical Uniswap swap events into the observation schema. Easiest; preserves determinism.
+- *Forked-state simulation (recommended):* Fork mainnet with Foundry/Anvil and run trades against the real Uniswap v2/v3 contracts. Real AMM math, real pool state, zero cost, still deterministic.
+- *Live mempool feed:* Real-time detection. Hardest; breaks determinism; turns the benchmark into a live monitor.
+
+**Acting on the pool OUT (hard, and never on Uniswap directly):** 
+Uniswap is permissionless — there is no hook to "block" a swap. The only layer where a detection decision becomes a real consequence is the **block builder** (e.g., Flashbots' open-source rbuilder). The honest end-state architecture is:
+
+> **TradeX detection agent** → emits a classification → feeds a bundle-ordering/filtering policy inside a **builder** → tested locally, no mainnet, no real funds.
+
+*Note:* Filtering others' transactions sits in tension with the censorship-resistance ethos of decentralized building (BuilderNet). Production-real protection remains private order flow (hiding the victim), which detection ontology does not directly replace.
