@@ -109,7 +109,7 @@ graph TD
     SA["Surveillance Agent (LLM)"]
 
     BO -->|1. Observes| SA
-    SA -->|2. Actions (BLOCK/ALLOW)| AMM_Env
+    SA -->|2. Takes Action| AMM_Env
 
     subgraph Optimizer ["Prompt Optimization Loop (prompt_optimizer.py)"]
         TR["Trajectory & Episode Score"]
