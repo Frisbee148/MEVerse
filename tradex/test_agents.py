@@ -148,7 +148,7 @@ def test_active_agents_in_metadata():
 
 if __name__ == "__main__":
     print("=" * 50)
-    print("TradeX Multi-Agent Test Suite")
+    print("MEVerse Multi-Agent Test Suite")
     print("=" * 50)
     test_standalone_signals()
     test_stage3_anti_hacking()

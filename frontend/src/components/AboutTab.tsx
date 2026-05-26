@@ -34,9 +34,9 @@ export default function AboutTab() {
     <div className="page">
       <Card>
         <div className="about-section">
-          <h3>What is TradeX?</h3>
+          <h3>What is MEVerse?</h3>
           <p>
-            TradeX is a reinforcement-learning benchmark for <b>market surveillance</b>. It
+            MEVerse is a reinforcement-learning benchmark for <b>market surveillance</b>. It
             simulates an automated market maker (AMM) liquidity pool where bots and ordinary
             traders interact. A surveillance agent watches the order flow each step and decides
             whether to <b>ALLOW</b>, <b>MONITOR</b>, <b>FLAG</b>, or <b>BLOCK</b> the activity —

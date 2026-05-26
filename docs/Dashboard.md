@@ -1,6 +1,6 @@
 # Dashboard Documentation
 
-The TradeX Dashboard (`dashboard.py`) is an interactive Gradio-based UI for running, analyzing, and comparing market surveillance episodes. It provides real-time visualizations of AMM state, agent actions, signal intensity, and grading outcomes.
+The MEVerse Dashboard (`dashboard.py`) is an interactive Gradio-based UI for running, analyzing, and comparing market surveillance episodes. It provides real-time visualizations of AMM state, agent actions, signal intensity, and grading outcomes.
 
 ---
 
@@ -379,7 +379,7 @@ This tab allows users to upload and visualize telemetry files from previous runs
 
 **Type**: `gr.Markdown`
 
-**What it shows**: Static documentation explaining TradeX, tasks, actions, scoring components, and AMM dynamics.
+**What it shows**: Static documentation explaining MEVerse, tasks, actions, scoring components, and AMM dynamics.
 
 ---
 

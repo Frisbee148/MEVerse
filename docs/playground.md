@@ -1,12 +1,12 @@
 # Playground Documentation
 
-The TradeX Playground is the interactive OpenEnv web interface that allows users to manually interact with the `MarketSurveillanceEnvironment` by sending actions step-by-step, observing the environment's responses, and grading episodes in real time.
+The MEVerse Playground is the interactive OpenEnv web interface that allows users to manually interact with the `MarketSurveillanceEnvironment` by sending actions step-by-step, observing the environment's responses, and grading episodes in real time.
 
 ---
 
 ## Overview
 
-The Playground is **not custom code** in this repository. It is provided by the `openenv-core` library's web interface module and is dynamically integrated into the TradeX application when running in Hugging Face Space mode.
+The Playground is **not custom code** in this repository. It is provided by the `openenv-core` library's web interface module and is dynamically integrated into the MEVerse application when running in Hugging Face Space mode.
 
 ### Location in Application
 
@@ -53,7 +53,7 @@ from openenv.core.env_server.web_interface import (
 
 3. **Extract action fields**: `_extract_action_fields(SurveillanceAction)` inspects the Pydantic model to auto-generate input forms for the `action_type` field.
 
-4. **Determine UI type**: `_is_chat_env(SurveillanceAction)` checks if the action model uses a chat-style interface (it does not for TradeX).
+4. **Determine UI type**: `_is_chat_env(SurveillanceAction)` checks if the action model uses a chat-style interface (it does not for MEVerse).
 
 5. **Generate quick-start docs**: `get_quick_start_markdown(metadata, SurveillanceAction, SurveillanceObservation)` produces introductory documentation from the metadata and model schemas.
 
@@ -196,7 +196,7 @@ When running as a Hugging Face Space, the Playground and Dashboard are combined 
 
 ```
 ┌─────────────────────────────────────────────────┐
-│  TradeX Surveillance Dashboard                  │
+│  MEVerse Surveillance Dashboard                  │
 ├─────────────────────────────────────────────────┤
 │  [ Playground ]  [ Dashboard ]                  │  <- gr.Tabs
 ├─────────────────────────────────────────────────┤

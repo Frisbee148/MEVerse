@@ -1,12 +1,12 @@
-# How to Use TradeX
+# How to Use MEVerse
 
-Welcome to the comprehensive guide for running and interacting with the TradeX market surveillance benchmark. This document covers the complete file structure, required API keys, how to run every component of the system, and how to read the logs.
+Welcome to the comprehensive guide for running and interacting with the MEVerse market surveillance benchmark. This document covers the complete file structure, required API keys, how to run every component of the system, and how to read the logs.
 
 ---
 
 ## 1. Required API Keys and Environment Variables
 
-TradeX uses a language model as its primary surveillance agent and "judge" for prompt optimization. To run the LLM policies, you must provide your Hugging Face API credentials.
+MEVerse uses a language model as its primary surveillance agent and "judge" for prompt optimization. To run the LLM policies, you must provide your Hugging Face API credentials.
 
 You can set these in your terminal or create a `.env` file in the root directory.
 
@@ -24,10 +24,10 @@ You can set these in your terminal or create a `.env` file in the root directory
 
 ## 2. Complete Project Structure
 
-Here is a breakdown of the entire TradeX repository and where the core logic lives:
+Here is a breakdown of the entire MEVerse repository and where the core logic lives:
 
 ```text
-TradeX/
+MEVerse/
 ├── inference.py              # Competition entrypoint — LLM surveillance policy evaluator
 ├── dashboard.py              # Gradio UI — episode runner, comparison, telemetry viewer
 ├── app.py                    # OpenEnv server / HF Spaces entrypoint
@@ -62,7 +62,7 @@ TradeX/
 
 ## 3. Runnable Files: What to Run and When
 
-TradeX includes multiple entrypoints depending on what you are trying to accomplish (evaluation, debugging, visualization, or optimization).
+MEVerse includes multiple entrypoints depending on what you are trying to accomplish (evaluation, debugging, visualization, or optimization).
 
 ### A. Run the Official Benchmark (`inference.py`)
 This is the main entrypoint. It runs all three tasks sequentially (`burst_detection`, `pattern_manipulation_detection`, `full_market_surveillance`) and calculates the agent's score.

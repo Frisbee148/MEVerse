@@ -1,4 +1,4 @@
-// Typed client for the TradeX FastAPI backend.
+// Typed client for the MEVerse FastAPI backend.
 
 export type ActionType = "ALLOW" | "FLAG" | "BLOCK" | "MONITOR";
 export type Label = "normal" | "suspicious";

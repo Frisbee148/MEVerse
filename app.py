@@ -65,7 +65,7 @@ def _build_space_app() -> gr.Blocks:
             SurveillanceAction,
             SurveillanceObservation,
         )
-        title = get_gradio_display_title(metadata, fallback="TradeX")
+        title = get_gradio_display_title(metadata, fallback="MEVerse")
         playground_blocks = build_gradio_app(
             web_manager,
             action_fields,
@@ -100,7 +100,7 @@ def _build_space_app() -> gr.Blocks:
     )
     SPACE_THEME = openenv_theme or DASHBOARD_THEME
 
-    title = "TradeX Surveillance Dashboard"
+    title = "MEVerse Surveillance Dashboard"
     with gr.Blocks(
         title=title,
         fill_width=True,

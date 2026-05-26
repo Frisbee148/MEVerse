@@ -1,4 +1,4 @@
-"""FastAPI backend for the TradeX Surveillance Dashboard.
+"""FastAPI backend for the MEVerse Surveillance Dashboard.
 
 Drives the existing meverse market-surveillance environment, exposes JSON
 endpoints for the React frontend, and serves the built static assets.
@@ -38,7 +38,7 @@ TASK_META = {
 ROOT = Path(__file__).resolve().parent.parent
 DIST = Path(os.environ.get("TRADEX_DIST") or (ROOT / "frontend" / "dist"))
 
-app = FastAPI(title="TradeX Surveillance Dashboard")
+app = FastAPI(title="MEVerse Surveillance Dashboard")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
