@@ -15,7 +15,7 @@ TradeX is an advanced reinforcement learning benchmark environment built on the 
 
 The agent monitors real-time trading metrics and decides whether to `ALLOW`, `MONITOR`, `FLAG`, or `BLOCK` activity, balancing the need to stop malicious bots while protecting normal, healthy market flow.
 
-> **Read the Blog Post Summary:** [blog.md](file:///home/casp1an/Code/Tradexfinal/blog.md)
+> **Read the Blog Post Summary:** [blog.md](blog.md)
 
 ## What Problem is it Solving?
 Decentralized Finance (DeFi) is constantly targeted by algorithmic MEV (Maximal Extractable Value) bots performing sandwich attacks, frontrunning, and JIT liquidity manipulation. 
@@ -74,8 +74,8 @@ Hiding gives certain protection to those who opt in; detection gives universal c
   Step 5: Next episode runs with the improved prompt
   ```
 - **Adaptive Difficulty:** Bots use stealth mechanics and adapt to your agent's success rate—if you miss an attack, the bots get bolder; if you block them, they back off.
-- **Visual Dashboard:** Includes a Gradio-based interactive UI (`dashboard.py`) to run episodes, compare baselines, and review telemetry. See the [Dashboard Documentation](file:///home/casp1an/Code/Tradexfinal/docs/Dashboard.md) for a full breakdown.
-- **Agent Playground:** Test and inspect specific agent interactions using the [Playground Guide](file:///home/casp1an/Code/Tradexfinal/docs/playground.md).
+- **Visual Dashboard:** Includes a Gradio-based interactive UI (`dashboard.py`) to run episodes, compare baselines, and review telemetry. See the [Dashboard Documentation](docs/Dashboard.md) for a full breakdown.
+- **Agent Playground:** Test and inspect specific agent interactions using the [Playground Guide](docs/playground.md).
 
 ## Multi-Agent Architecture
 
@@ -161,7 +161,7 @@ python prompt_optimizer.py --task full_market_surveillance --iterations 5 --seed
 
 Below are the graphs and plots detailing the performance of the Meverse agent over the training period and comparing it against the baseline.
 
-> **For detailed environment specs:** See the [Meverse README](file:///home/casp1an/Code/Tradexfinal/meverse/README.md)
+> **For detailed environment specs:** See the [Meverse README](meverse/README.md)
 
 ### Baseline vs Trained Performance
 ![Baseline vs Trained](meverse_plots/baseline_vs_trained.png)

@@ -27,3 +27,14 @@ Launch the visual dashboard:
 ```bash
 python dashboard.py
 ```
+
+## Meverse Training Results
+
+### Baseline vs Trained Performance
+![Baseline vs Trained](meverse_plots/baseline_vs_trained.png)
+
+### Reward vs Training Step
+![Reward vs Training Step](meverse_plots/reward_vs_training_step.png)
+
+### Task Scores Comparison
+![Task Scores Comparison](meverse_plots/task_scores_comparison.png)
