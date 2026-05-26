@@ -116,7 +116,7 @@ The main interactive tab for running surveillance episodes. Users select a task,
   - FLAG = Amber (`#ffa502`)
   - BLOCK = Red (`#ff4757`)
   - MONITOR = Blue (`#3498db`)
-- **Line**: Teal (`#00c9a7`) dotted line on secondary y-axis showing cumulative reward trajectory
+- **Line**: Blue (`#3b82f6`) dotted line on secondary y-axis showing cumulative reward trajectory
 
 **Hover data**: Step number, reward value, action taken, ground truth label
 
@@ -195,7 +195,7 @@ The main interactive tab for running surveillance episodes. Users select a task,
 | Line | Color | Style | Axis | What it means |
 |------|-------|-------|------|---------------|
 | Price | Blue (`#0088cc`) | Solid | Primary y-axis | Current AMM price (`reserve_y / reserve_x`). Drifts as trades occur. |
-| Liquidity | Teal (`#00c9a7`) | Dashed | Secondary y-axis | Pool liquidity (`2 * sqrt(k)`). Changes as simulated trades move reserves. |
+| Liquidity | Blue (`#3b82f6`) | Dashed | Secondary y-axis | Pool liquidity (`2 * sqrt(k)`). Changes as simulated trades move reserves. |
 
 **Row 2 -- "Bot Confidence, Volatility & Health"** (all on 0-1 scale):
 | Line | Color | Style | What it means |
@@ -227,7 +227,7 @@ The main interactive tab for running surveillance episodes. Users select a task,
 
 **Visual encoding**:
 - Fill: Semi-transparent teal (`rgba(0,200,167,0.15)`)
-- Line: Teal (`#00c9a7`), width 2
+- Line: Blue (`#3b82f6`), width 2
 - Range: 0 (center) to 1 (outer edge)
 
 **What it means**: The shape of the radar reveals the agent's strengths and weaknesses. A large, balanced shape indicates a well-rounded policy. A spike in Detection but a dip in False Positive means the agent catches threats but also overreacts. A score >= 0.6 overall is considered passing.
@@ -251,7 +251,7 @@ The main interactive tab for running surveillance episodes. Users select a task,
 **Color scale**:
 - Dark (`#1a1d27`) = Zero counts
 - Blue (`#0088cc`) = Low counts
-- Teal (`#00c9a7`) = High counts
+- Blue (`#3b82f6`) = High counts
 
 **Text overlay**: Count numbers displayed in each cell (white, size 16)
 
@@ -320,7 +320,7 @@ This tab runs the same episode (same task, same seed) across all three baseline 
 **Grouped bars** (6 metrics per policy):
 | Metric | Color | What it means |
 |--------|-------|---------------|
-| Final Score | Teal (`#00c9a7`) | Overall episode score (0-1) |
+| Final Score | Blue (`#3b82f6`) | Overall episode score (0-1) |
 | Detection | Blue (`#0088cc`) | Detection component score |
 | False Pos. | Green (`#2ed573`) | False positive component score |
 | False Neg. | Red (`#ff4757`) | False negative component score |
@@ -394,7 +394,7 @@ This tab allows users to upload and visualize telemetry files from previous runs
 | border | `#2a2d3a` | Borders, grid lines |
 | text | `#e4e6eb` | Primary text |
 | muted | `#8b8fa3` | Secondary text, labels |
-| accent | `#00c9a7` | Teal -- primary accent, buttons, cumulative line |
+| accent | `#3b82f6` | Blue -- primary accent, buttons, cumulative line |
 | accent2 | `#0088cc` | Blue -- price line, secondary accent |
 | danger | `#ff4757` | Red -- BLOCK, suspicious, bot confidence |
 | warning | `#ffa502` | Amber -- FLAG, volatility |
@@ -422,7 +422,7 @@ This tab allows users to upload and visualize telemetry files from previous runs
 ## Gradio Theme
 
 - **Base**: `gr.themes.Base`
-- **Primary hue**: Custom teal scale (c500=`#00c9a7`)
+- **Primary hue**: Custom blue scale (c500=`#3b82f6`)
 - **Secondary hue**: Custom blue scale (c500=`#0088cc`)
 - **Neutral hue**: Custom dark scale (c950=`#0f1117`)
 - **Font**: Inter, system-ui, sans-serif
