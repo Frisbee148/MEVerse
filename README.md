@@ -87,7 +87,10 @@ TradeX implements several mechanisms to prevent the Surveillance Agent from "gam
 2. **Adversarial Bot Evolution:** As episodes progress, the `ManipulatorBot` enters "Stage 3" (anti-hacking mode). It deliberately mimics normal trading time gaps (spacing trades > 1.0s) while still injecting malicious volume. This forces the agent to look beyond simple rapid-fire heuristics and analyze deeper price impacts.
 3. **Balanced Reward Function:** The environment grades the agent using a strict weighted formula: 50% for Detection, but 20% penalty for False Positives, 15% penalty for False Negatives, 10% for Market Health, and 5% penalty for Overblocking. The LLM Prompt Optimizer is explicitly instructed about this balance to ensure it doesn't converge on a trigger-happy "BLOCK-all" strategy.
 
-## Quick Start
+## How to Use (Quick Start)
+
+> [!TIP]
+> For a comprehensive guide covering the full project structure, required API keys, detailed run commands, and log file explanations, please read the **[How to Use Guide](How_to_use.md)**.
 
 Run the official multi-task benchmark (requires `API_BASE_URL`, `MODEL_NAME`, and `HF_TOKEN` environment variables):
 ```bash
