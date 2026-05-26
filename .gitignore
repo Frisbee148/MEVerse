@@ -7,3 +7,6 @@ __pycache__/
 .omc/
 *.ipynb
 .agents/
+frontend/node_modules/
+frontend/dist/
+node_modules/
