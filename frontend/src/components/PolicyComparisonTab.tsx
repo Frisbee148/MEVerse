@@ -115,8 +115,8 @@ export default function PolicyComparisonTab({ tasks }: { tasks: TaskInfo[] }) {
                   cursor={{ fill: "rgba(255,255,255,0.04)" }}
                 />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Bar dataKey="Heuristic" fill={C.accent} radius={[2, 2, 0, 0]} />
-                <Bar dataKey="Always Allow" fill={C.blue} radius={[2, 2, 0, 0]} />
+                <Bar dataKey="Heuristic" fill={C.success} radius={[2, 2, 0, 0]} />
+                <Bar dataKey="Always Allow" fill={C.accent} radius={[2, 2, 0, 0]} />
                 <Bar dataKey="Random" fill={C.warning} radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
