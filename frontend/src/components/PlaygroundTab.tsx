@@ -271,6 +271,9 @@ function MiniBars({ values, color }: { values: number[]; color: string }) {
         <XAxis dataKey="i" hide />
         <Tooltip
           contentStyle={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, fontSize: 12 }}
+          itemStyle={{ color: C.text }}
+          labelStyle={{ color: C.text }}
+          cursor={{ fill: "rgba(255,255,255,0.04)" }}
           formatter={(v: number | string) => fmt(Number(v), 4)}
         />
         <Bar dataKey="v" radius={[2, 2, 0, 0]}>

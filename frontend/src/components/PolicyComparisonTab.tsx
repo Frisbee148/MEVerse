@@ -109,6 +109,8 @@ export default function PolicyComparisonTab({ tasks }: { tasks: TaskInfo[] }) {
                 <YAxis domain={[0, 1]} stroke={C.muted} fontSize={11} />
                 <Tooltip
                   contentStyle={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, fontSize: 12 }}
+                  itemStyle={{ color: C.text }}
+                  labelStyle={{ color: C.text }}
                   formatter={(v: number | string) => fmt(Number(v))}
                   cursor={{ fill: "rgba(255,255,255,0.04)" }}
                 />

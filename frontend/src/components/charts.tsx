@@ -44,6 +44,9 @@ export function RewardTimeline({ steps }: { steps: StepRecord[] }) {
         <YAxis yAxisId="r" orientation="right" {...AXIS} />
         <Tooltip
           contentStyle={tooltipStyle()}
+          itemStyle={{ color: C.text }}
+          labelStyle={{ color: C.text }}
+          cursor={{ fill: "rgba(255,255,255,0.04)" }}
           formatter={(value: number | string, name: string, item: { payload?: StepRecord }) => {
             if (name === "reward") {
               const p = item?.payload;
@@ -86,7 +89,7 @@ export function ActionDistribution({ steps }: { steps: StepRecord[] }) {
         <CartesianGrid {...GRID} vertical={false} />
         <XAxis dataKey="action" {...AXIS} />
         <YAxis {...AXIS} allowDecimals={false} />
-        <Tooltip contentStyle={tooltipStyle()} cursor={{ fill: "rgba(255,255,255,0.04)" }} />
+        <Tooltip contentStyle={tooltipStyle()} itemStyle={{ color: C.text }} labelStyle={{ color: C.text }} cursor={{ fill: "rgba(255,255,255,0.04)" }} />
         <Legend wrapperStyle={{ fontSize: 12 }} />
         <Bar dataKey="normal" stackId="a" fill={C.success} name="normal" radius={[0, 0, 0, 0]} />
         <Bar dataKey="suspicious" stackId="a" fill={C.danger} name="suspicious" radius={[2, 2, 0, 0]} />
@@ -146,7 +149,7 @@ export function AmmEvolution({ amm }: { amm: AmmStates }) {
           <XAxis dataKey="step" {...AXIS} />
           <YAxis yAxisId="l" {...AXIS} />
           <YAxis yAxisId="r" orientation="right" {...AXIS} />
-          <Tooltip contentStyle={tooltipStyle()} formatter={(v: number | string) => fmt(Number(v))} />
+          <Tooltip contentStyle={tooltipStyle()} itemStyle={{ color: C.text }} labelStyle={{ color: C.text }} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v: number | string) => fmt(Number(v))} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
           <Line yAxisId="l" type="monotone" dataKey="price" stroke={C.blue} strokeWidth={2} dot={false} name="Price" />
           <Line
@@ -166,7 +169,7 @@ export function AmmEvolution({ amm }: { amm: AmmStates }) {
           <CartesianGrid {...GRID} vertical={false} />
           <XAxis dataKey="step" {...AXIS} />
           <YAxis {...AXIS} domain={[0, 1]} />
-          <Tooltip contentStyle={tooltipStyle()} formatter={(v: number | string) => fmt(Number(v))} />
+          <Tooltip contentStyle={tooltipStyle()} itemStyle={{ color: C.text }} labelStyle={{ color: C.text }} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v: number | string) => fmt(Number(v))} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
           <Line type="monotone" dataKey="botConfidence" stroke={C.danger} strokeWidth={2} dot={false} name="Bot Confidence" />
           <Line type="monotone" dataKey="volatility" stroke={C.warning} strokeWidth={2} strokeDasharray="2 3" dot={false} name="Volatility" />
@@ -193,7 +196,7 @@ export function GradeRadar({ grade }: { grade: Grade }) {
         <PolarAngleAxis dataKey="axis" tick={{ fill: C.muted, fontSize: 11 }} />
         <PolarRadiusAxis domain={[0, 1]} tick={{ fill: C.muted, fontSize: 10 }} angle={90} />
         <Radar dataKey="v" stroke={C.accent} fill={C.accent} fillOpacity={0.35} strokeWidth={2} />
-        <Tooltip contentStyle={tooltipStyle()} formatter={(v: number | string) => fmt(Number(v))} />
+        <Tooltip contentStyle={tooltipStyle()} itemStyle={{ color: C.text }} labelStyle={{ color: C.text }} cursor={{ fill: "rgba(255,255,255,0.04)" }} formatter={(v: number | string) => fmt(Number(v))} />
       </RadarChart>
     </ResponsiveContainer>
   );

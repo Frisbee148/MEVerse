@@ -113,6 +113,9 @@ export default function TelemetryTab() {
                 <YAxis domain={[0, 1]} stroke={C.muted} fontSize={11} />
                 <Tooltip
                   contentStyle={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 8, fontSize: 12 }}
+                  itemStyle={{ color: C.text }}
+                  labelStyle={{ color: C.text }}
+                  cursor={{ fill: "rgba(255,255,255,0.04)" }}
                   formatter={(v: number | string, _n, item: { payload?: { action?: string; label?: string } }) => [
                     `${fmt(Number(v))} · ${item?.payload?.action} · ${item?.payload?.label}`,
                     "reward",
